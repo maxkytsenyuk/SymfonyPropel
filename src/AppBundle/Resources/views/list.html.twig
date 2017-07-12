@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/css/styles.css') }}">
 {% endblock %}
 {% block body %}
-    <a href="{{ logout_path() }}" class="btn btn-danger">LOGOUT</a>
+    <a href="{{ path('logout') }}" class="btn btn-danger">LOGOUT</a>
     <h2>Table from database</h2>
     <p>Displaying a table:</p>
     <div class="table-container">

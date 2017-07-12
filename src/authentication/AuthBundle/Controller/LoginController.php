@@ -15,6 +15,10 @@ class LoginController extends Controller
      */
     public function loginAction(Request $request)
     {
+        if (TRUE === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('playerslist');
+        }
+
         $authenticationUtils = $this->get('security.authentication_utils');
 
         $errors = $authenticationUtils->getLastAuthenticationError();
@@ -28,7 +32,7 @@ class LoginController extends Controller
     }
 
     /**
-     * @Route("/logout")
+     * @Route("/logout", name="logout")
      */
     public function logoutAction(){
 
